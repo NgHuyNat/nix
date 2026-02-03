@@ -15,10 +15,11 @@
     ../../modules/home-manager/features/zsh
     ../../modules/home-manager/features/nvim
     ../../modules/home-manager/features/wezterm
+    ../../modules/home-manager/features/kitty
     ../../modules/home-manager/features/tmux
     ../../modules/home-manager/features/git
     ../../modules/home-manager/features/mpv
-    ../../modules/home-manager/features/nemo
+    ../../modules/home-manager/features/dolphin
     ../../modules/home-manager/features/fastfetch
     ../../modules/home-manager/features/ripgrep
     ../../modules/home-manager/features/starship
@@ -48,7 +49,7 @@
   };
 
   home.packages = with pkgs; [
-    unstable.brave                    
+    unstable.firefox                  
     unstable.discord                  
     unstable.spotify                  
     unstable.vscode                   

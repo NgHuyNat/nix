@@ -9,11 +9,11 @@
 
   services.displayManager = {
     gdm = {
-      enable = false; # GDM không tương thích tốt với Hyprland
+      enable = true;
+      wayland = true;
     };
     sddm = {
-      enable = true;
-      wayland.enable = true;
+      enable = false;
     };
   };
 
@@ -23,7 +23,7 @@
       enable = false;
     };
     gnome = {
-      enable = false;
+      enable = true;
     };
   };
 }

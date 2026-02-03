@@ -174,11 +174,11 @@
       XftHintStyle=hintslight
       TerminalApplication=kitty -1
       XftSubPixel=none
-      fixed=JetBrainsMono Nerd Font,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
-      font=Rubik,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
-      menuFont=Rubik,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
-      smallestReadableFont=Rubik,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
-      toolBarFont=Rubik,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+      fixed=Google Sans Code,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+      font=Google Sans Code,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+      menuFont=Google Sans Code,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+      smallestReadableFont=Google Sans Code,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+      toolBarFont=Google Sans Code,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 
       [Icons]
       Theme=breeze-dark
@@ -209,7 +209,7 @@
       [WM]
       activeBackground=54,52,58
       activeBlend=252,252,252
-      activeFont=Rubik,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+      activeFont=Google Sans Code,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
       activeForeground=230,224,233
       inactiveBackground=76,70,90
       inactiveBlend=161,169,177

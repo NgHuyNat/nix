@@ -21,6 +21,8 @@
     package = pkgs.hyprland;
   };
 
+  home.packages = [ pkgs.fuzzel ];
+
   # === SYMLINKS SCRIPTS ===
   home.file.".config/hypr/hyprland/scripts" = {
     source = ./scripts/hyprland;

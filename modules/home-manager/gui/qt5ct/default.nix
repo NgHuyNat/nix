@@ -17,8 +17,8 @@
     style=kvantum-dark
 
     [Fonts]
-    fixed="JetBrainsMono Nerd Font,11,-1,5,50,0,0,0,0,0,Regular"
-    general="Rubik,11,-1,5,50,0,0,0,0,0"
+    fixed="Google Sans Code,11,-1,5,50,0,0,0,0,0,Regular"
+    general="Google Sans Code,11,-1,5,50,0,0,0,0,0"
 
     [Interface]
     activate_item_on_single_click=1

@@ -1,14 +1,15 @@
 rec {
   # NIX
   nix_version = "25.11";
-  nix_config = "~/Workspaces/config/nixos"; # Path to NixOS config
+  nix_config = "~/Workspaces/Config/nixos"; # Path to NixOS config
 
   # SYSTEM
   isa = "x86_64"; # uname -m (lowercase)
   os = "linux"; # uname -s (lowercase)
 
   # DISPLAY
-  port_name = "eDP-1";               # xrandr | grep " connected" | head -1 | awk '{print $1}'
+  port_name = "eDP-2";               # Màn hình chính (Laptop)
+  secondary_monitor = "DP-1";        # Màn hình phụ
   resolution = "1920x1080";         # xrandr | grep " connected" | head -1 | awk '{print $3}' | cut -d '+' -f 1
   frequency = "144.00";                # xrandr | grep -oP '\d+\.\d+(?=[*+ ])' | sort -rn | head -n 1
   

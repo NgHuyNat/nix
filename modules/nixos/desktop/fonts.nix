@@ -1,9 +1,16 @@
 # nixos/fonts.nix (giữ nguyên + bổ sung)
 { config, pkgs, ... }:
+
+let
+  google-sans-code = pkgs.callPackage ../../../packages/google-sans-code.nix { };
+in
 {
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
+      # === GOOGLE SANS CODE (Custom) ===
+      google-sans-code
+      
       # === BASIC FONTS ===
       noto-fonts
       noto-fonts-cjk-sans
@@ -41,7 +48,7 @@
       defaultFonts = {
         serif = [ "Adwaita Serif" "Roboto Serif" "Noto Serif" ];
         sansSerif = [ "Inter" "Roboto" "Open Sans" "Noto Sans" ];
-        monospace = [ "JetBrains Mono Nerd Font" "Source Code Pro" ];
+        monospace = [ "Google Sans Code" "JetBrains Mono Nerd Font" "Source Code Pro" ];
         emoji = [ "Noto Color Emoji" ];
       };
     };

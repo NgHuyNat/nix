@@ -15,7 +15,7 @@
     settings = {
       "$qsConfig" = "ii";
       "$terminal" = "wezterm"; # kitty
-      "$fileManager" = "nemo";
+      "$fileManager" = "dolphin";
       "$browser" = "firefox";
       "$codeEditor" = "code";
     };

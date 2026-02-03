@@ -14,10 +14,10 @@
     settings = {
       general = {
         gaps_in = 3;
-        gaps_out = 3;
+        gaps_out = 6;
         gaps_workspaces = 50;
 
-        border_size = 3;
+        border_size = 1;
         
         "col.active_border" = "$outline";
         "col.inactive_border" = "$outline_variant";

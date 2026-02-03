@@ -39,6 +39,6 @@
     
     # Core applications
     kitty           # Terminal emulator
-    nemo            # File manager
+    kdePackages.dolphin  # File manager
   ];
 }

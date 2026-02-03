@@ -30,7 +30,7 @@
     
     # === FONT CONFIGURATION ===
     font = {
-      name = "JetBrainsMono Nerd Font";
+      name = "Google Sans Code";
       size = 11;
     };
     
@@ -40,7 +40,7 @@
       gtk-theme-name = "Catppuccin-Mocha-Compact-Blue-Dark";
       gtk-icon-theme-name = "Papirus-Dark";
       gtk-cursor-theme-name = "breeze_cursors";
-      gtk-font-name = "JetBrainsMono Nerd Font 11";
+      gtk-font-name = "Google Sans Code 11";
     };
     
     gtk4.extraConfig = {
@@ -48,7 +48,7 @@
       gtk-theme-name = "Catppuccin-Mocha-Compact-Blue-Dark";
       gtk-icon-theme-name = "Papirus-Dark";
       gtk-cursor-theme-name = "breeze_cursors";
-      gtk-font-name = "JetBrainsMono Nerd Font 11";
+      gtk-font-name = "Google Sans Code 11";
     };
   };
 

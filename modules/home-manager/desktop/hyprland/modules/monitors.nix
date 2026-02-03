@@ -5,17 +5,21 @@
 # ██║ ╚═╝ ██║╚██████╔╝██║ ╚████║██║   ██║   ╚██████╔╝██║  ██║███████║
 # ╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝
 # --------------------------------------------------------------------
-
+# MONITORS - Được quản lý bởi nwg-displays
+# Config được lưu tại: ~/.config/hypr/monitors.conf
 
 { config, lib, pkgs, hostVars, ... }:
 
 {
-  wayland.windowManager.hyprland = {
-    settings = {
-      monitor = [ # monitor = <tên>,<độ phân giải>@<tần số quét>,<vị trí>,<tỷ lệ>
-        "${hostVars.port_name}, ${hostVars.resolution}@${hostVars.frequency}, 0x0, 1, bitdepth, 8"
-        "HDMI-A-1, 1920x1080@144.00, 1920x0, 1, bitdepth, 8" # Màn phụ (sửa nếu có)
-      ];
-    };
+  imports = [
+    ./nwg-displays.nix
+  ];
+
+  wayland.windowManager.hyprland.settings = {
+    # Cấu hình monitor fallback (được override bởi nwg-displays config)
+    monitor = [
+      "${hostVars.port_name}, ${hostVars.resolution}@${hostVars.frequency}, 0x0, 1"
+      "${hostVars.secondary_monitor}, 1920x1080@143.99, 1920x0, 1"
+    ];
   };
 }

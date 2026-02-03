@@ -5,8 +5,8 @@
     enable = true;
     
     font = {
-      name = "JetBrainsMono NF Bold";
-      size = 14.0;
+      name = "Google Sans Code";
+      size = 13.0;
     };
     
     settings = {
@@ -17,6 +17,7 @@
       # Cursor settings
       cursor_shape = "beam";
       cursor_trail = 1;
+      
 
       # Font settings
       bold_font = "auto";
@@ -29,8 +30,15 @@
       background_image = "none";
       background_tint = "0.8";
       confirm_os_window_close = 0;
-      window_padding_width = 4;
-      window_margin_width = 4;
+      window_padding_width = 10;
+      window_margin_width = 10;
+
+      # Tab Bar Aesthetics
+      tab_bar_style = "powerline";
+      tab_powerline_style = "slanted";
+      active_tab_font_style = "bold";
+      inactive_tab_font_style = "normal";
+      tab_bar_margin_width = 5.0;
 
 
       # Display server
@@ -51,7 +59,7 @@
 
     extraConfig = ''
       # Import color scheme
-      include /home/${hostVars.user.username}/Workspaces/config/nixos/generated/kitty.conf
+      include /home/${hostVars.user.username}/Workspaces/Config/nixos/generated/kitty.conf
 
       # Copy
       map ctrl+c    copy_or_interrupt
