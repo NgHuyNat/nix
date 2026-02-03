@@ -36,7 +36,7 @@ rec {
   ];
 
   # NETWORKING
-  hostname = "nixos-laptop";
+  hostname = "nixos";
   nameservers = [ "8.8.8.8" "8.8.4.4" ];
   firewall = {
     enable = true;
@@ -97,7 +97,7 @@ rec {
 
   # SYNCTHING
   syncthing = {
-    enable = true;
+    enable = false;
     
     settings = {
       gui = {
