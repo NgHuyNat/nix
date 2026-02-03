@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+  { config, pkgs, ... }:
 
 {
   # === GTK THEME CONFIGURATION ===
@@ -21,10 +21,10 @@
       package = pkgs.papirus-icon-theme;
     };
     
-    # === MACOS CURSOR THEME ===
+    # === BREEZE CURSOR THEME ===
     cursorTheme = {
-      name = "macOS";
-      package = pkgs.apple-cursor;
+      name = "breeze_cursors";
+      package = pkgs.kdePackages.breeze;
       size = 24;
     };
     
@@ -39,7 +39,7 @@
       gtk-application-prefer-dark-theme = true;
       gtk-theme-name = "Catppuccin-Mocha-Compact-Blue-Dark";
       gtk-icon-theme-name = "Papirus-Dark";
-      gtk-cursor-theme-name = "macOS";
+      gtk-cursor-theme-name = "breeze_cursors";
       gtk-font-name = "JetBrainsMono Nerd Font 11";
     };
     
@@ -47,7 +47,7 @@
       gtk-application-prefer-dark-theme = true;
       gtk-theme-name = "Catppuccin-Mocha-Compact-Blue-Dark";
       gtk-icon-theme-name = "Papirus-Dark";
-      gtk-cursor-theme-name = "macOS";
+      gtk-cursor-theme-name = "breeze_cursors";
       gtk-font-name = "JetBrainsMono Nerd Font 11";
     };
   };

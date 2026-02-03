@@ -16,7 +16,7 @@
       "$qsConfig" = "ii";
       "$terminal" = "wezterm"; # kitty
       "$fileManager" = "nemo";
-      "$browser" = "brave";
+      "$browser" = "firefox";
       "$codeEditor" = "code";
     };
   };

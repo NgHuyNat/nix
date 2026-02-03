@@ -14,8 +14,8 @@
     
     # === CURSOR THEMES ===
     catppuccin-cursors.mochaDark
-    apple-cursor
-    
+    kdePackages.breeze
+
     # === THEMING UTILITIES ===
     matugen           # Material You color generation from wallpapers
     nwg-look          # GTK theme configuration

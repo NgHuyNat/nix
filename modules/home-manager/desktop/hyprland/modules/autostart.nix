@@ -36,7 +36,7 @@
         "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch ${pkgs.cliphist}/bin/cliphist store && qs -c $qsConfig ipc call cliphistService update"
 
         # Set cursor theme
-        "hyprctl setcursor macOS 24"
+        "hyprctl setcursor breeze_cursors 24"
 
         # Network management
         "${pkgs.networkmanagerapplet}/bin/nm-applet"

@@ -19,9 +19,9 @@
         "QT_SCALE_FACTOR,1"
         
         # === CURSOR THEME ===
-        "XCURSOR_THEME,apple-cursor"
+        "XCURSOR_THEME,breeze_cursors"
         "XCURSOR_SIZE,24"
-        "HYPRCURSOR_THEME,apple-cursor"
+        "HYPRCURSOR_THEME,breeze_cursors"
         "HYPRCURSOR_SIZE,24"
 
         # ############ Wayland #############

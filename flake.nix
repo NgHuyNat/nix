@@ -61,8 +61,8 @@
     in
     {
       nixosConfigurations = {
-        desktop = mkHost "desktop";
-        laptop  = mkHost "laptop";
+        nixos-desktop = mkHost "desktop";
+        nixos-laptop  = mkHost "laptop";
         # device.example = mkHost "device.example";
       };
       devShells = forAllSystems (system:

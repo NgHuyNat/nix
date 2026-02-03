@@ -32,20 +32,19 @@ rec {
 
   # USER
   user = {
-    name = "Nagih";
-    username = "nagih"; # (home.username)
-    description = "Vuong Manh Nghia";
-    email = "vuongmanhnghia@gmail.com";
+    name = "Huy Tan";
+    username = "nghuytan";
+    description = "Nguyen Huy Tan";
+    email = "nghuytan.ptit@gmail.com";
   };
 
   # GIT
-  git_name = "${user.name}";
+  git_name = "NgHuyNat";
   git_email = "${user.email}";
 
   # ALIAS
   alias = {
     cls = "clear";
-    blog = "cd /home/${user.username}/hugo";
 
     # === SYSTEM MANAGEMENT (Enhanced) ===
     oh = "cd ~/ && echo 'Went back home'";
@@ -67,7 +66,6 @@ rec {
     noob = "cd ~/Workspaces/noob";
     ptit = "cd ~/Workspaces/ptit";
     vir = "cd ~/Workspaces/virtual";
-    janus = "cd ~/Workspaces/projects/Janus";
     
     # === DOCUMENTATION ===
     docs = "cd ~/Documents";
@@ -106,11 +104,6 @@ rec {
         "pictures" = {
           id = "pictures";
           path = "/home/${user.username}/Pictures";
-          devices = [ "nixos-desktop" "syncthing-server" ];
-        };
-        "hugo" = {
-          id = "hugo";
-          path = "/home/${user.username}/hugo";
           devices = [ "nixos-desktop" "syncthing-server" ];
         };
       };

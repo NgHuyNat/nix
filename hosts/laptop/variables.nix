@@ -19,9 +19,9 @@ rec {
     "QT_SCALE_FACTOR,1"
     
     # === CURSOR THEME ===
-    "XCURSOR_THEME,apple-cursor"
+    "XCURSOR_THEME,breeze_cursors"
     "XCURSOR_SIZE,24"
-    "HYPRCURSOR_THEME,apple-cursor"
+    "HYPRCURSOR_THEME,breeze_cursors"
     "HYPRCURSOR_SIZE,24"
 
     # ############ Wayland #############
@@ -55,20 +55,19 @@ rec {
 
   # USER
   user = {
-    name = "Nagih";
-    username = "nagih";
-    description = "Vuong Manh Nghia";
-    email = "vuongmanhnghia@gmail.com";
+    name = "Huy Tan";
+    username = "nghuytan";
+    description = "Nguyen Huy Tan";
+    email = "nghuytan.ptit@gmail.com";
   };
 
   # GIT
-  git_name = "Nagih";
-  git_email = "vuongmanhnghia@gmail.com";
+  git_name = "NgHuyNat";
+  git_email = "nghuytan.ptit@gmail.com";
 
   # ALIAS
   alias = {
     cls = "clear";
-    blog = "cd /home/${user.username}/hugo";
 
     # === SYSTEM MANAGEMENT (Enhanced) ===
     oh = "cd ~/ && echo 'Went back home'";
@@ -90,7 +89,6 @@ rec {
     noob = "cd ~/Workspaces/noob";
     ptit = "cd ~/Workspaces/ptit";
     vir = "cd ~/Workspaces/virtual";
-    janus = "cd ~/Workspaces/projects/Janus";
     
     # === DOCUMENTATION ===
     docs = "cd ~/Documents";
@@ -126,11 +124,6 @@ rec {
         "pictures" = {
           id = "pictures";
           path = "/home/${user.username}/Pictures";
-          devices = [ "nixos-desktop" "syncthing-server" ];
-        };
-        "hugo" = {
-          id = "hugo";
-          path = "/home/${user.username}/hugo";
           devices = [ "nixos-desktop" "syncthing-server" ];
         };
       };
