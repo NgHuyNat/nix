@@ -23,6 +23,7 @@
     ../../modules/home-manager/features/dolphin
     ../../modules/home-manager/features/fastfetch
     ../../modules/home-manager/features/ripgrep
+    ../../modules/home-manager/features/noisetorch
     ../../modules/home-manager/features/starship
     
     # GUI

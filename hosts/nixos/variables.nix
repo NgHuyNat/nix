@@ -9,7 +9,7 @@ rec {
 
   # DISPLAY
   port_name = "eDP-2";               # Màn hình chính (Laptop)
-  secondary_monitor = "DP-1";        # Màn hình phụ
+  secondary_monitor = "HDMI-A-1";        # Màn hình phụ
   resolution = "1920x1080";         # xrandr | grep " connected" | head -1 | awk '{print $3}' | cut -d '+' -f 1
   frequency = "144.00";                # xrandr | grep -oP '\d+\.\d+(?=[*+ ])' | sort -rn | head -n 1
   

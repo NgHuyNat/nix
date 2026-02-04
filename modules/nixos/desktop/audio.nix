@@ -32,12 +32,31 @@
               "node.description" = "Echo Cancel Sink";
             };
             "aec.args" = {
-              "webrtc.gain_control" = true;
+              # Echo cancellation
               "webrtc.extended_filter" = true;
               "webrtc.delay_agnostic" = true;
-              "webrtc.high_pass_filter" = true;
+              
+              # Noise suppression - level 0-3, higher = more aggressive
               "webrtc.noise_suppression" = true;
+              "webrtc.noise_suppression_level" = 3;  # Very High
+              
+              # Transient suppression (keyboard/mouse clicks)
               "webrtc.transient_suppression" = true;
+              
+              # High pass filter (removes low frequency rumble)
+              "webrtc.high_pass_filter" = true;
+              
+              # Gain control
+              "webrtc.gain_control" = true;
+              "webrtc.analog_gain_control" = false;
+              "webrtc.digital_gain_control" = true;
+              
+              # Voice activity detection
+              "webrtc.voice_detection" = true;
+              
+              # Experimental features
+              "webrtc.experimental_agc" = true;
+              "webrtc.experimental_ns" = true;
             };
           };
         }
@@ -56,6 +75,7 @@
   };
 
   security.rtkit.enable = true;
+  programs.noisetorch.enable = true;  # Better than built-in WebRTC for noise/keyboard suppression
   hardware.firmware = [ pkgs.sof-firmware ];
 
   environment.systemPackages = with pkgs; [
@@ -63,4 +83,5 @@
     alsa-utils
     sof-firmware
   ];
+
 } 
