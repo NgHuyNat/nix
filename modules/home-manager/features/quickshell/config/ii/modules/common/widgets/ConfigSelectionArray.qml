@@ -47,6 +47,7 @@ Flow {
             buttonText: modelData.displayName
             toggled: root.currentValue === modelData.value
             onClicked: {
+                root.currentValue = modelData.value;
                 root.selected(modelData.value);
             }
         }

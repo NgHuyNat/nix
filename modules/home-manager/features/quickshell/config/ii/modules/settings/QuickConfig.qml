@@ -174,11 +174,20 @@ ContentPage {
             }
         }
 
+        Timer {
+            id: paletteTypeApplyTimer
+            interval: 100 // Wait for config file to be written (fileWriteTimer is 50ms)
+            repeat: false
+            onTriggered: {
+                Quickshell.execDetached(["bash", "-c", `${Directories.wallpaperSwitchScriptPath} --noswitch`]);
+            }
+        }
+
         ConfigSelectionArray {
             currentValue: Config.options.appearance.palette.type
             onSelected: newValue => {
                 Config.options.appearance.palette.type = newValue;
-                Quickshell.execDetached(["bash", "-c", `${Directories.wallpaperSwitchScriptPath} --noswitch`]);
+                paletteTypeApplyTimer.restart();
             }
             options: [
                 {
