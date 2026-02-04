@@ -113,7 +113,7 @@ scheme = Scheme(hct, darkmode, 0.0)
 material_colors = {}
 term_colors = {}
 
-for color in hostVars(MaterialDynamicColors).keys():
+for color in vars(MaterialDynamicColors).keys():
     color_name = getattr(MaterialDynamicColors, color)
     if hasattr(color_name, "get_hct"):
         rgba = color_name.get_hct(scheme).to_rgba()
