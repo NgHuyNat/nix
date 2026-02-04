@@ -25,7 +25,7 @@
 
         # Core components (authentication, lock screen, notification daemon)
         "gnome-keyring-daemon --start --components=secrets"
-        "/usr/lib/polkit-kde-authentication-agent-1 || /usr/libexec/polkit-kde-authentication-agent-1  || /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 || /usr/libexec/polkit-gnome-authentication-agent-1"
+        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "hypridle"
         "dbus-update-activation-environment --all"
         "sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # Some fix idk"
@@ -54,5 +54,6 @@
     hypridle
     wl-clipboard
     cliphist
+    polkit_gnome
   ];
 }

@@ -32,7 +32,7 @@ in
 
 # Cấu hình mặc định
 monitor = eDP-2, 1920x1080@144.00, 0x0, 1
-monitor = DP-1, 1920x1080@143.99, 1920x0, 1
+monitor = DP-1, 1920x1080@180.00, 1920x0, 1
 EOF
     fi
   '';

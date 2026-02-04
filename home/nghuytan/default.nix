@@ -9,6 +9,7 @@
     # Desktop
     ../../modules/home-manager/desktop/hyprland
     ../../modules/home-manager/desktop/xdg-portal
+    ../../modules/home-manager/features/bat
 
     # Features
     ../../modules/home-manager/features/quickshell
