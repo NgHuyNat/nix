@@ -13,7 +13,7 @@
   #   source = ../../../dotfiles/quickshell;
   #   recursive = true;
   # };
-  xdg.configFile."quickshell".source = ./config;
+  xdg.configFile."quickshell".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Workspaces/Config/nixos/modules/home-manager/features/quickshell/config";
 
   # === ENVIRONMENT VARIABLES ===
   home.sessionVariables = {
@@ -58,8 +58,9 @@
       
       # Create basic KDE wrapper script
       $DRY_RUN_CMD mkdir -p ${config.home.homeDirectory}/.config/matugen/templates/kde
+      $DRY_RUN_CMD mkdir -p ${config.home.homeDirectory}/.local/state/quickshell/user/generated/terminal
       cat > ${config.home.homeDirectory}/.config/matugen/templates/kde/kde-material-you-colors-wrapper.sh << 'EOF'
-#!/bin/bash
+#!/usr/bin/env bash
 # Basic KDE Material You colors wrapper
 echo "KDE theming not fully implemented yet"
 EOF

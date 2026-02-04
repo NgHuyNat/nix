@@ -4,7 +4,7 @@
 let
   configPath = "${config.home.homeDirectory}/Workspaces/Config/nixos";
   generatedPath = "${configPath}/generated";
-  templatePath = "${configPath}/home/shared/matugen/templates";
+  templatePath = "${configPath}/modules/home-manager/gui/matugen/templates";
 in
 {
   # Install matugen package

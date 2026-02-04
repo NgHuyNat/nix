@@ -137,7 +137,7 @@ Item {
                 }
                 NightLight {}
                 GameMode {}
-                // IdleInhibitor {} // Temporarily disabled for quickshell 0.2.0
+                IdleInhibitor {}
                 EasyEffectsToggle {}
                 CloudflareWarp {}
             }

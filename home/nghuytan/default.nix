@@ -1,7 +1,7 @@
 { config, pkgs, unstable, inputs, hostVars, ... }:
 
 {
-  home.username = hostVars.user.username;            
+  home.username = hostVars.user.username;             
   home.homeDirectory = "/home/${hostVars.user.username}"; 
   home.stateVersion = hostVars.nix_version;
   
@@ -33,7 +33,7 @@
     ../../modules/home-manager/gui/kvantum
     ../../modules/home-manager/gui/matugen
     ../../modules/home-manager/gui/qt5ct
-    ../../modules/home-manager/gui/qt6ct      
+    ../../modules/home-manager/gui/qt6ct       
   ];
 
   programs.direnv = {
@@ -43,7 +43,7 @@
   programs.git = {
     settings = {
       user = {
-        name = hostVars.git_name;               
+        name = hostVars.git_name;                
         email = hostVars.git_email;
       };
     };
@@ -53,12 +53,12 @@
     unstable.firefox                  
     unstable.discord                  
     unstable.spotify                  
-    unstable.vscode                   
-    unstable.antigravity              
+    unstable.vscode                    
+    unstable.antigravity               
     unstable.telegram-desktop         
     unstable.slack                    
-    unstable.obsidian                 
-    unstable.obs-studio               
+    unstable.obsidian                  
+    unstable.obs-studio                
     (prismlauncher.override {
       jdks = [
         jdk
@@ -97,34 +97,51 @@
     DOCUMENTS_DIR = "${config.home.homeDirectory}/Documents";
   };
 
+  # === CẤU HÌNH SSH MỚI ===
   programs.ssh = {
     enable = true;
-    enableDefaultConfig = false;
+    addKeysToAgent = "yes"; # Tự động thêm key vào agent để không phải nhập lại pass
     
-    extraConfig = ''
-      AddKeysToAgent yes
-      IdentityFile ~/.ssh/id_ed25519
-    '';
-
     matchBlocks = {
-      "*" = {
-        forwardAgent = false;
-        serverAliveInterval = 60;
-        serverAliveCountMax = 3;
-        compression = true;
+      # GitHub
+      "github.com" = {
+        hostname = "github.com";
+        user = "git";
+        identityFile = "~/.ssh/id_ed25519_github";
         identitiesOnly = true;
       };
 
-      "i-* mi-*" = {
-        userKnownHostsFile = "/dev/null";
-        proxyCommand = "sh -c '${pkgs.awscli2}/bin/aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters \"portNumber=%p\"'";
+      # GitLab
+      "gitlab.com" = {
+        hostname = "gitlab.com";
+        user = "git";
+        identityFile = "~/.ssh/id_ed25519_gitlab";
+        identitiesOnly = true;
       };
-      
+
+      # GitLab AISoft
+      "gitlab.aisoftech.vn" = {
+        hostname = "gitlab.aisoftech.vn";
+        user = "git";
+        identityFile = "~/.ssh/id_ed25519_gitlab_aisoft";
+        identitiesOnly = true;
+      };
+
+      # GitLab RIPT
+      "gitlab.ript.vn" = {
+        hostname = "gitlab.ript.vn";
+        user = "git";
+        port = 11024;
+        identityFile = "~/.ssh/id_ed25519_gitlab_ript";
+        identitiesOnly = true;
+      };
+
+      # GitLab Nooblearn2code
       "gitlab.nooblearn2code.com" = {
         hostname = "14.225.218.83";
         user = "git";
         port = 222;
-        identityFile = "~/.ssh/id_ed25519";
+        identityFile = "~/.ssh/id_ed25519_gitlab_nooblearn2code";
         identitiesOnly = true;
       };
     };

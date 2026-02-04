@@ -30,12 +30,42 @@
         force = true;  
         text = ''
           [Hotkey]
-          TriggerKeys=
           EnumerateWithTriggerKeys=True
           EnumerateSkipFirst=False
 
           [Hotkey/TriggerKeys]
-          0=Control+Shift
+          0=Control+Shift_L
+
+          [Hotkey/EnumerateForwardKeys]
+          0=Hangul_Hanja
+
+          [Hotkey/EnumerateBackwardKeys]
+          0=Hangul_Romaja
+
+          [Hotkey/EnumerateGroupForwardKeys]
+          0=Super+space
+
+          [Hotkey/EnumerateGroupBackwardKeys]
+          0=Shift+Super+space
+
+          [Hotkey/ActivateKeys]
+
+          [Hotkey/DeactivateKeys]
+
+          [Hotkey/PrevPage]
+          0=Up
+
+          [Hotkey/NextPage]
+          0=Down
+
+          [Hotkey/PrevCandidate]
+          0=Shift+Tab
+
+          [Hotkey/NextCandidate]
+          0=Tab
+
+          [Hotkey/TogglePreedit]
+          0=Control+Alt+P
 
           [Behavior]
           ActiveByDefault=False
@@ -152,12 +182,42 @@
         force = true; 
         text = ''
           [Hotkey]
-          TriggerKeys=
           EnumerateWithTriggerKeys=True
           EnumerateSkipFirst=False
 
           [Hotkey/TriggerKeys]
-          0=Control+Shift
+          0=Control+Shift_L
+
+          [Hotkey/EnumerateForwardKeys]
+          0=Hangul_Hanja
+
+          [Hotkey/EnumerateBackwardKeys]
+          0=Hangul_Romaja
+
+          [Hotkey/EnumerateGroupForwardKeys]
+          0=Super+space
+
+          [Hotkey/EnumerateGroupBackwardKeys]
+          0=Shift+Super+space
+
+          [Hotkey/ActivateKeys]
+
+          [Hotkey/DeactivateKeys]
+
+          [Hotkey/PrevPage]
+          0=Up
+
+          [Hotkey/NextPage]
+          0=Down
+
+          [Hotkey/PrevCandidate]
+          0=Shift+Tab
+
+          [Hotkey/NextCandidate]
+          0=Tab
+
+          [Hotkey/TogglePreedit]
+          0=Control+Alt+P
 
           [Behavior]
           ActiveByDefault=False
