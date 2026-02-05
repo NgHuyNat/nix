@@ -8,7 +8,8 @@ rec {
   os = "linux"; # uname -s (lowercase)
 
   # DISPLAY
-  port_name = "eDP-2";               # Màn hình chính (Laptop)
+  port_name = "eDP-1";               # Màn hình chính (Laptop)
+  port_name2 = "eDP-2";               # Màn hình chính (Laptop)
   secondary_monitor = "HDMI-A-1";        # Màn hình phụ
   resolution = "1920x1080";         # xrandr | grep " connected" | head -1 | awk '{print $3}' | cut -d '+' -f 1
   frequency = "144.00";                # xrandr | grep -oP '\d+\.\d+(?=[*+ ])' | sort -rn | head -n 1
@@ -58,7 +59,7 @@ rec {
   user = {
     name = "Huy Tan";
     username = "nghuytan";
-    description = "Nguyen Huy Tan";
+    description = "Huy Tan";
     email = "nghuytan.ptit@gmail.com";
   };
 
@@ -81,7 +82,7 @@ rec {
     nix-reset = "sudo systemctl stop nix-daemon && sudo rm -rf /nix/store/* && sudo rm -rf /nix/var/nix/db/* && sudo systemctl start nix-daemon && sudo nixos-rebuild switch --flake ${nix_config} --impure";
 
     # === CODE EDITOR WORKFLOW (Enhanced) ===
-    code = "cursor";
+    code = "code";
     idea = "idea-community";
 
     # === DEVELOPMENT SHORTCUTS ===

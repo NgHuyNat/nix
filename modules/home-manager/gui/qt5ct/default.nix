@@ -12,7 +12,7 @@
     [Appearance]
     color_scheme_path=/usr/share/qt5ct/colors/darker.conf
     custom_palette=true
-    icon_theme=OneUI-dark
+    icon_theme=Papirus-Dark
     standard_dialogs=default
     style=kvantum-dark
 

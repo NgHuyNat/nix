@@ -29,7 +29,7 @@
 
         # ############ Themes #############
         "XDG_MENU_PREFIX,plasma-"
-        "QT_QPA_PLATFORMTHEME,qt6ct"
+
 
         # ######## Virtual envrionment #########
         "ILLOGICAL_IMPULSE_VIRTUAL_ENV=${config.home.homeDirectory}/.local/state/quickshell/.venv"

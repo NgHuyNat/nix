@@ -1,6 +1,11 @@
   { config, pkgs, ... }:
 
 {
+  # === PACKAGES ===
+  home.packages = with pkgs; [
+    kdePackages.breeze
+  ];
+
   # === GTK THEME CONFIGURATION ===
   gtk = {
     enable = true;
@@ -54,14 +59,16 @@
 
   # === CUSTOM ICONS ===
   xdg.dataFile."icons/custom".source = ./icons;
+
+
   
   # === QT THEME CONFIGURATION ===
   qt = {
     enable = true;
     platformTheme.name = "gtk";
     style = {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
+      name = "breeze";
+      package = pkgs.kdePackages.breeze;
     };
   };
 } 

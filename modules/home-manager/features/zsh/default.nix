@@ -110,9 +110,10 @@
       h = "history";                                  # Fuzzy history search
       hg = "history | grep";                          # Grep history
       weather = "curl wttr.in";                       # Quick weather
-      ip = "curl ifconfig.me";                        # Public IP
+      pubip = "curl ifconfig.me";                        # Public IP
       localip = "ip route get 1 | awk '{print \$7}'"; # Local IP
       ports = "netstat -tulanp";                      # Show open ports
+      ip = "ip a";
       
       # === DIRECTORY OPERATIONS ===
       md = "mkdir -pv";                               # Create directory with parents

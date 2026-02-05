@@ -9,6 +9,7 @@
       waylandFrontend = true;
       addons = with pkgs; [
         qt6Packages.fcitx5-unikey
+        fcitx5-material-color
       ];
     };
   };
@@ -25,6 +26,11 @@
 
   # === HOME-MANAGER CONFIGURATION ===
   home-manager.users.${hostVars.user.username} = {
+    home.packages = with pkgs; [
+      libsForQt5.qt5.qtsvg
+      kdePackages.qtsvg
+    ];
+
     home.file = {
       ".config/fcitx5/config" = {
         force = true;  
@@ -160,7 +166,7 @@
           PreferTextIcon=True
           ShowLayoutNameInIcon=True
           UseInputMethodLanguageToDisplayText=True
-          Theme=default
+          Theme=Material-Color-Blue
           UseDarkTheme=True
           UseAccentColor=True
           PerScreenDPI=False

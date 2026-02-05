@@ -12,7 +12,7 @@
     [Appearance]
     color_scheme_path=~/.config/qt6ct/style-colors.conf
     custom_palette=true
-    icon_theme=OneUI
+    icon_theme=Papirus-Dark
     standard_dialogs=default
     style=kvantum
 
