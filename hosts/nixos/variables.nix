@@ -86,15 +86,22 @@ rec {
     idea = "idea-community";
 
     # === DEVELOPMENT SHORTCUTS ===
+    dev = "cd ~/Workspaces/Dev";
     wsp = "cd ~/Workspaces";
     prj = "cd ~/Workspaces/projects";
-    noob = "cd ~/Workspaces/noob";
     ptit = "cd ~/Workspaces/ptit";
     vir = "cd ~/Workspaces/virtual";
     
     # === DOCUMENTATION ===
     docs = "cd ~/Documents";
     down = "cd ~/Downloads";   
+
+    # === VPN-WIREGUARD ===
+    wg-up = "sudo wg-quick up";
+    wg-down = "sudo wg-quick down";
+    wg-status = "sudo wg show";
+    wg-list = "sudo wg show all";
+    wg-restart = "sudo wg-quick down && sudo wg-quick up";
   };
 
   # SYNCTHING

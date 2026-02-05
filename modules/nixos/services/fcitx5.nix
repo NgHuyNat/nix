@@ -147,10 +147,14 @@
         text = ''
           InputMethod=Telex
           OutputCharset=Unicode
-          ProcessWAtWordBeginning=True
-          SpellCheck=False
+          SpellCheck=True
           MacroEnabled=True
-          MouseCapture=True
+          ProcessWAtWordBeginning=True
+          AutoRestoreKeysWithInvalidWord=True
+          OaUy=False
+          FreeMarking=True
+          RestoreKeyStateFromSurroundingText=True
+          ModernStyle=False
         '';
       };
 
@@ -166,7 +170,7 @@
           PreferTextIcon=True
           ShowLayoutNameInIcon=True
           UseInputMethodLanguageToDisplayText=True
-          Theme=Material-Color-Blue
+          Theme=Custom-NoUnderline
           UseDarkTheme=True
           UseAccentColor=True
           PerScreenDPI=False

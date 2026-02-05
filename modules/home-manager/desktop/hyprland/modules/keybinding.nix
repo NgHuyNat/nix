@@ -142,7 +142,7 @@
         "$mainMod, T, exec, ~/.config/hypr/hyprland/scripts/launch_first_available.sh  \"\${TERMINAL}\" \"kitty -1\" \"foot\" \"alacritty\" \"wezterm\" \"konsole\" \"kgx\" \"uxterm\" \"xterm\"" # [hidden] (terminal) (alt)
         "Ctrl+Alt, T, exec, ~/.config/hypr/hyprland/scripts/launch_first_available.sh \"\${TERMINAL}\" \"kitty -1\" \"foot\" \"alacritty\" \"wezterm\" \"konsole\" \"kgx\" \"uxterm\" \"xterm\"" # [hidden] (terminal) (for Ubuntu people)
         "$mainMod, E, exec, ~/.config/hypr/hyprland/scripts/launch_first_available.sh \"dolphin\" \"nautilus\" \"nemo\" \"thunar\" \"\${TERMINAL}\" \"kitty -1 fish -c yazi\"" # File manager
-        "$mainMod, W, exec, ~/.config/hypr/hyprland/scripts/launch_first_available.sh  \"firefox\" \"coccoc-browser-stable\" \"google-chrome-stable\" \"zen-browser\" \"brave\" \"chromium\" \"microsoft-edge-stable\" \"opera\" \"librewolf\"" # Browser
+        "$mainMod, W, exec, ~/.config/hypr/hyprland/scripts/launch_first_available.sh \"google-chrome-stable\" \"firefox\" \"coccoc-browser-stable\" \"zen-browser\" \"brave\" \"chromium\" \"microsoft-edge-stable\" \"opera\" \"librewolf\"" # Browser
         "$mainMod, C, exec, ~/.config/hypr/hyprland/scripts/launch_first_available.sh \"code\" \"codium\" \"cursor\" \"zed\" \"zedit\" \"zeditor\" \"kate\" \"gnome-text-editor\" \"emacs\" \"command -v nvim && kitty -1 nvim\" \"command -v micro && kitty -1 micro\"" # Code editor
         "$mainMod+Shift, W, exec, ~/.config/hypr/hyprland/scripts/launch_first_available.sh \"wps\" \"onlyoffice-desktopeditors\"" # Office software
         "$mainMod, X, exec, ~/.config/hypr/hyprland/scripts/launch_first_available.sh \"kate\" \"gnome-text-editor\" \"emacs\"" # Text editor

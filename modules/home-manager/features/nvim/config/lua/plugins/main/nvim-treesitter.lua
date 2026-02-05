@@ -52,5 +52,4 @@ return {
     vim.treesitter.language.register("bash", "dotenv")
     vim.treesitter.language.register("bash", "zsh")
   end,
-  main = "nvim-treesitter.configs",
 }

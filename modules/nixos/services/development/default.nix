@@ -11,6 +11,7 @@
     ./networks.nix
     ./system.nix
     ./virtual.nix
+    ./wireguard.nix
     # ./cloudflared.nix
   ];
 

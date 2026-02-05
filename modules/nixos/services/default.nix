@@ -10,4 +10,4 @@
     ./custom.nix       # Custom applications
     ./fcitx5.nix       # Vietnamese input
   ];
-} 
+}

@@ -51,6 +51,7 @@
   };
 
   home.packages = with pkgs; [
+    unstable.google-chrome
     unstable.firefox                  
     unstable.discord                  
     unstable.spotify                  

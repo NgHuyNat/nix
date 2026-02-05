@@ -16,7 +16,7 @@
       "$qsConfig" = "ii";
       "$terminal" = "wezterm"; # kitty
       "$fileManager" = "dolphin";
-      "$browser" = "firefox";
+      "$browser" = "google-chrome-stable";
       "$codeEditor" = "code";
     };
   };
