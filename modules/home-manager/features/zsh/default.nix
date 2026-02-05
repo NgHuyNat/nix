@@ -6,6 +6,7 @@
     enable = true;
     enableCompletion = true;          # Enable advanced tab completion
     autosuggestion.enable = true;     # Enable command autosuggestions based on history
+    autosuggestion.highlight = "fg=#a0a0a0";  # Light gray for better visibility
     syntaxHighlighting.enable = true; # Enable command syntax highlighting
     
     # === MODERN ZSH CONFIGURATION ===
@@ -135,6 +136,9 @@
 
     # === ADVANCED ZSH CONFIGURATION ===
     initContent = ''
+      # === ZSH AUTOSUGGESTION COLOR ===
+      export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#a0a0a0"
+      
       # === POWERLEVEL10K INSTANT PROMPT ===
       # Enable instant prompt but suppress warnings to fix console output issue
       if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
