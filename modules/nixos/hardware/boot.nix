@@ -9,13 +9,30 @@
         enable = true;
         
         # Limit number of boot entries shown in menu (saves /boot space)
-        configurationLimit = 5;  # Show only 5 most recent configurations
+        configurationLimit = 20;  # Show only 5 most recent configurations
         
         # Allow editing kernel parameters at boot (security consideration)
         editor = false;  # Set to true if you need to edit boot parameters
         
         # Console resolution mode
         consoleMode = "auto";  # Options: "auto", "max", "0", "1", "2"
+        
+        # Windows boot entry
+        # Copy Windows bootloader từ Windows EFI partition sang NixOS EFI
+        extraInstallCommands = ''
+          # Mount Windows EFI partition nếu chưa mount
+          ${pkgs.coreutils}/bin/mkdir -p /boot/windows-efi
+          ${pkgs.util-linux}/bin/mount -o ro /dev/disk/by-uuid/5285-290D /boot/windows-efi 2>/dev/null || true
+          
+          # Copy Windows EFI files nếu tồn tại
+          if [ -d /boot/windows-efi/EFI/Microsoft ]; then
+            ${pkgs.coreutils}/bin/mkdir -p /boot/EFI/Microsoft
+            ${pkgs.coreutils}/bin/cp -r /boot/windows-efi/EFI/Microsoft/Boot /boot/EFI/Microsoft/
+          fi
+          
+          # Unmount
+          ${pkgs.util-linux}/bin/umount /boot/windows-efi 2>/dev/null || true
+        '';
       };
       
       # Boot menu timeout before selecting default entry
