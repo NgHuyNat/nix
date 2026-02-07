@@ -4,12 +4,10 @@
   xdg.portal = {
     enable = true;
     extraPortals = [
-      hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
       pkgs.kdePackages.xdg-desktop-portal-kde
     ];
     configPackages = [
-      hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
       pkgs.kdePackages.xdg-desktop-portal-kde
     ];

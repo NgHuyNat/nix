@@ -37,6 +37,12 @@ in
       nerd-fonts.fira-code
       nerd-fonts.meslo-lg
       nerd-fonts.roboto-mono
+      nerd-fonts.symbols-only   # Symbols for icons
+      
+      # === ICON FONTS ===
+      material-design-icons
+      material-symbols
+      font-awesome
       
       # === VIETNAMESE SUPPORT ===
       source-han-sans

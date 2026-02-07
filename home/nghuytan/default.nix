@@ -7,13 +7,12 @@
   
   imports = [
     # Desktop
-    # ../../modules/home-manager/desktop/hyprland
-    ../../modules/home-manager/desktop/hyprland/end4-adapter.nix
+    ../../modules/home-manager/desktop/hyprland
     ../../modules/home-manager/desktop/xdg-portal
     ../../modules/home-manager/features/bat
 
     # Features
-    ../../modules/home-manager/features/quickshell
+    # ../../modules/home-manager/features/quickshell
     ../../modules/home-manager/features/zsh
     ../../modules/home-manager/features/nvim
     ../../modules/home-manager/features/wezterm

@@ -10,11 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,9 +23,14 @@
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
+
+    quickshell = {
+      url = "git+https://github.com/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, quickshell, agenix, end-4-dots, hyprland, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, agenix, end-4-dots, hyprland, quickshell, ... }@inputs:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
 
@@ -46,7 +46,7 @@
             config.allowUnfree = true;
           };
 
-          specialArgs = { inherit inputs quickshell unstable hostVars end-4-dots hyprland; };
+          specialArgs = { inherit inputs unstable hostVars end-4-dots hyprland quickshell; };
         in
         nixpkgs.lib.nixosSystem {
           inherit system specialArgs;
