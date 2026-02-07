@@ -19,9 +19,18 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    end-4-dots = {
+      url = "git+https://github.com/end-4/dots-hyprland?submodules=1";
+      flake = false;
+    };
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, quickshell, agenix, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, quickshell, agenix, end-4-dots, hyprland, ... }@inputs:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
 
@@ -37,7 +46,7 @@
             config.allowUnfree = true;
           };
 
-          specialArgs = { inherit inputs quickshell unstable hostVars; };
+          specialArgs = { inherit inputs quickshell unstable hostVars end-4-dots hyprland; };
         in
         nixpkgs.lib.nixosSystem {
           inherit system specialArgs;
@@ -54,6 +63,12 @@
                 backupFileExtension = "backup";
                 extraSpecialArgs = specialArgs;
                 users.${hostVars.user.username} = import ./home/${hostVars.user.username};
+              };
+              
+              # Hyprland Cachix
+              nix.settings = {
+                substituters = ["https://hyprland.cachix.org"];
+                trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
               };
             }
           ];

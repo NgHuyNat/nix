@@ -1,10 +1,12 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, hyprland, ... }:
 
 {
   # Hyprland core configuration  
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+    package = hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
 
   # Core system services
@@ -18,19 +20,10 @@
     NIXOS_OZONE_WL = "1";
   };
   
-  # Add GCC 15 lib to LD_LIBRARY_PATH for GLIBCXX_3.4.34 (required by Hyprland 0.52.1)
-  environment.sessionVariables.LD_LIBRARY_PATH = pkgs.lib.mkAfter [ "${pkgs.gcc15.cc.lib}/lib" ];
-
   # Essential core packages
   environment.systemPackages = with pkgs; [
     # Core window manager packages
-    gcc15.cc.lib
-    
-    # Wrapper for Hyprland with correct LD_LIBRARY_PATH
-    (pkgs.writeShellScriptBin "hyprland" ''
-      export LD_LIBRARY_PATH="${pkgs.gcc15.cc.lib}/lib:$LD_LIBRARY_PATH"
-      exec ${pkgs.hyprland}/bin/Hyprland "$@"
-    '')
+    # (Removed manual hacks)
     
     # Essential Hyprland utilities
     hyprlock

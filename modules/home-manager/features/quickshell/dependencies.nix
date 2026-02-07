@@ -81,7 +81,6 @@
     hypridle                # Idle management
     hyprlock                # Screen locker
     hyprcursor              # Cursor theme manager
-    xdg-desktop-portal-hyprland # XDG portal for Hyprland
     
     # === PYTHON DEPENDENCIES ===
     python3                 # Python runtime

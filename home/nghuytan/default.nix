@@ -7,7 +7,8 @@
   
   imports = [
     # Desktop
-    ../../modules/home-manager/desktop/hyprland
+    # ../../modules/home-manager/desktop/hyprland
+    ../../modules/home-manager/desktop/hyprland/end4-adapter.nix
     ../../modules/home-manager/desktop/xdg-portal
     ../../modules/home-manager/features/bat
 

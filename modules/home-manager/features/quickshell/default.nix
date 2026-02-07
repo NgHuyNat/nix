@@ -38,9 +38,7 @@
   # === HOME ACTIVATION SCRIPT ===
   home.activation = {
     setupQuickShellEnvironment = config.lib.dag.entryAfter ["writeBoundary"] ''
-      # Create necessary directories
       $DRY_RUN_CMD mkdir -p ${config.home.homeDirectory}/.local/state/quickshell
-      $DRY_RUN_CMD mkdir -p ${config.home.homeDirectory}/.config/hypr/custom/scripts
       $DRY_RUN_CMD mkdir -p ${config.home.homeDirectory}/Pictures/Wallpapers
       $DRY_RUN_CMD mkdir -p ${config.home.homeDirectory}/Pictures/Screenshots
       $DRY_RUN_CMD mkdir -p ${config.home.homeDirectory}/.config/matugen/templates/kde
@@ -53,18 +51,17 @@
       fi
             
       # Create empty restore script for video wallpapers
-      $DRY_RUN_CMD touch ${config.home.homeDirectory}/.config/hypr/custom/scripts/__restore_video_wallpaper.sh
-      $DRY_RUN_CMD chmod +x ${config.home.homeDirectory}/.config/hypr/custom/scripts/__restore_video_wallpaper.sh
+      $DRY_RUN_CMD mkdir -p ${config.home.homeDirectory}/.local/state/quickshell/scripts
+      $DRY_RUN_CMD touch ${config.home.homeDirectory}/.local/state/quickshell/scripts/__restore_video_wallpaper.sh
+      $DRY_RUN_CMD chmod +x ${config.home.homeDirectory}/.local/state/quickshell/scripts/__restore_video_wallpaper.sh
       
       # Create basic KDE wrapper script
-      $DRY_RUN_CMD mkdir -p ${config.home.homeDirectory}/.config/matugen/templates/kde
-      $DRY_RUN_CMD mkdir -p ${config.home.homeDirectory}/.local/state/quickshell/user/generated/terminal
-      cat > ${config.home.homeDirectory}/.config/matugen/templates/kde/kde-material-you-colors-wrapper.sh << 'EOF'
+      cat > ${config.home.homeDirectory}/.local/state/quickshell/scripts/kde-material-you-colors-wrapper.sh << 'EOF'
 #!/usr/bin/env bash
 # Basic KDE Material You colors wrapper
 echo "KDE theming not fully implemented yet"
 EOF
-      $DRY_RUN_CMD chmod +x ${config.home.homeDirectory}/.config/matugen/templates/kde/kde-material-you-colors-wrapper.sh
+      $DRY_RUN_CMD chmod +x ${config.home.homeDirectory}/.local/state/quickshell/scripts/kde-material-you-colors-wrapper.sh
 
       # Create AI service start script in a writable location
       $DRY_RUN_CMD mkdir -p ${config.home.homeDirectory}/.local/state/quickshell/scripts/ai
