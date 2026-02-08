@@ -8,6 +8,7 @@
     terminal=kitty -1
     prompt=">>  "
     layer=overlay
+    show-actions=yes
 
     [border]
     radius=17

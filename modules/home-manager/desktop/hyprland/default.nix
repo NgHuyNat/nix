@@ -9,7 +9,7 @@
     ./workspaces.nix    # Workspace configuration
     ./input.nix         # Input (keyboard, mouse, touchpad)
     ./main-config.nix   # Main Hyprland config override
-    ./packages.nix      # Quickshell and dependencies
+    ./quickshell-upstream.nix # Upstream Quickshell integration
     ./keybinds.nix      # Custom keybindings
     ./autostart.nix     # Autostart applications
   ];

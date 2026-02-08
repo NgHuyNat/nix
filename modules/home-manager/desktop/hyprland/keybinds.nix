@@ -149,9 +149,9 @@
 
       # Cursed stuff
       "Ctrl+$mainMod, Backslash, resizeactive, exact 640 480"
-
-      # "$mainMod+Shift, S, Screen snip, global, quickshell:regionScreenshot"
-      "$mainMod+Shift, S, exec, qs -c $qsConfig ipc call TEST_ALIVE || pidof slurp || hyprshot --freeze --clipboard-only --mode region --silent"
+      
+      # Override quickshell screenshot keybind
+      "$mainMod+Shift, S, exec, pkill slurp; mkdir -p $(xdg-user-dir PICTURES)/Screenshots && grim -g \"$(slurp)\" - | tee $(xdg-user-dir PICTURES)/Screenshots/Screenshot_\"$(date '+%Y-%m-%d_%H.%M.%S')\".png | wl-copy && notify-send \"Screenshot\" \"Saved to ~/Pictures/Screenshots\""
     ];
 
     bindit = [
@@ -175,7 +175,7 @@
       # Utilities
       "$mainMod, V, Copy clipboard history entry, exec, qs -c $qsConfig ipc call TEST_ALIVE || pkill fuzzel || cliphist list | fuzzel --match-mode fzf --dmenu | cliphist decode | wl-copy"
       "$mainMod, Period, Copy an emoji, exec, qs -c $qsConfig ipc call TEST_ALIVE || pkill fuzzel || ~/.config/hypr/hyprland/scripts/fuzzel-emoji.sh copy"
-      "$mainMod+Shift, T, Character recognition,exec,pkill slurp; grim -g \"$(slurp -o)\" \"tmp.png\" && tesseract \"tmp.png\" - | wl-copy && rm \"tmp.png\""
+      "$mainMod+Shift, T, Character recognition,exec,pkill slurp; grim -g \"$(slurp)\" \"tmp.png\" && tesseract \"tmp.png\" - | wl-copy && rm \"tmp.png\""
       "$mainMod+Shift, C, Color picker, exec, hyprpicker -a"
       
       "$mainMod+Alt, R, Record region (no sound), exec, ~/.config/hypr/hyprland/scripts/record.sh"
@@ -218,8 +218,7 @@
     bindld = [
       "$mainMod+Shift,M, Toggle mute, exec, wpctl set-mute @DEFAULT_SINK@ toggle"
       "$mainMod,F1, Toggle mic, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
-      ",Print, Screenshot >> clipboard ,exec,pkill slurp; grim -g \"$(slurp -o)\" - | wl-copy && notify-send \"Screenshot\" \"Copied to clipboard\""
-      "Ctrl,Print, Screenshot >> clipboard & save, exec, pkill slurp; mkdir -p $(xdg-user-dir PICTURES)/Screenshots && grim -g \"$(slurp -o)\" $(xdg-user-dir PICTURES)/Screenshots/Screenshot_\"$(date '+%Y-%m-%d_%H.%M.%S')\".png && notify-send \"Screenshot\" \"Saved to ~/Pictures/Screenshots\""
+      ",Print, Screenshot >> clipboard, exec, pkill slurp; grim -g \"$(slurp)\" - | wl-copy && notify-send \"Screenshot\" \"Copied to clipboard\""
       "$mainMod+Shift, L, Suspend system, exec, systemctl suspend || loginctl suspend"
     ];
     

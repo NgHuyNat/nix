@@ -57,6 +57,9 @@ let
     # Patch Config.qml to unhide Fcitx
     # Remove "Fcitx" from the pinned list which acts as a blacklist when invertPinnedItems is true (default)
     sed -i 's/pinnedItems: \[ "Fcitx" \]/pinnedItems: []/' $out/ii/modules/common/Config.qml
+    
+    # Disable screenshot keybind by commenting out regionScreenshot in all QML files
+    find $out -name "*.qml" -type f -exec sed -i 's/regionScreenshot/\/\/ regionScreenshot/g' {} \;
   '';
 in
 {
