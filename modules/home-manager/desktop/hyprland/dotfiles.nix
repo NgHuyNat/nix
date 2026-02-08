@@ -13,6 +13,9 @@ let
     rm -f $out/input.conf
     rm -f $out/workspaces.conf
 
+    # Rename main config to source config so Home Manager generally manages hyprland.conf
+    mv $out/hyprland.conf $out/hyprland-source.conf
+
     # --- Patching for compatibility ---
     # Fix: config option <misc:on_focus_under_fullscreen> does not exist. (deprecated?)
     sed -i 's/^.*misc:on_focus_under_fullscreen.*$//g' $out/hyprland/general.conf
@@ -41,9 +44,19 @@ let
     sed -i '/^plugin {$/,/^}$/{ /hyprexpo/,/^    }$/ s/^/#/ }' $out/hyprland/general.conf
     
     # Remove source lines for files we manage via Nix settings
-    sed -i '/^source=monitors\.conf/d' $out/hyprland.conf
-    sed -i '/^source=input\.conf/d' $out/hyprland.conf
-    sed -i '/^source=workspaces\.conf/d' $out/hyprland.conf
+    sed -i '/^source=monitors\.conf/d' $out/hyprland-source.conf
+    sed -i '/^source=input\.conf/d' $out/hyprland-source.conf
+    sed -i '/^source=workspaces\.conf/d' $out/hyprland-source.conf
+  '';
+    # Filter and patch Quickshell config
+    quickshellConfigDir = pkgs.runCommand "quickshell-config-dir" {} ''
+    mkdir -p $out
+    cp -r ${dotsPath}/.config/quickshell/* $out/
+    chmod -R u+w $out
+    
+    # Patch Config.qml to unhide Fcitx
+    # Remove "Fcitx" from the pinned list which acts as a blacklist when invertPinnedItems is true (default)
+    sed -i 's/pinnedItems: \[ "Fcitx" \]/pinnedItems: []/' $out/ii/modules/common/Config.qml
   '';
 in
 {
@@ -67,7 +80,7 @@ in
   };
 
   xdg.configFile."quickshell" = {
-    source = "${dotsPath}/.config/quickshell";
+    source = quickshellConfigDir;
     recursive = true;
   };
 }

@@ -2,6 +2,8 @@
 { config, pkgs, lib, end-4-dots, ... }:
 
 {
-  # No need for main-config.nix - hyprland.conf is sourced from dotfiles.nix
-  # monitors, workspaces, input are managed via separate Nix modules
+  # Import the base config from dotfiles (now renamed)
+  wayland.windowManager.hyprland.extraConfig = ''
+    source = ~/.config/hypr/hyprland-source.conf
+  '';
 }

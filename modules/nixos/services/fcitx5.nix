@@ -250,22 +250,5 @@
       };
     };
 
-    # AUTOSTART - Sử dụng home-manager's built-in functionality
-    # FCITX5 SYSTEMD SERVICE (Auto-start)
-    systemd.user.services.fcitx5-daemon = {
-      Unit = {
-        Description = "Fcitx5 input method editor";
-        After = [ "graphical-session.target" ];
-        PartOf = [ "graphical-session.target" ];
-      };
-      Service = {
-        ExecStart = "${pkgs.fcitx5}/bin/fcitx5 -D";
-        Restart = "on-failure";
-        Type = "simple";
-      };
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-      };
-    };
   };
 }

@@ -1,13 +1,12 @@
 # Autostart applications and services
 { config, lib, pkgs, hostVars, ... }:
 
+
 {
   wayland.windowManager.hyprland.settings = {    
     exec-once = [
       "${hostVars.nix_config}/home/shared/hypr/scripts/hyprland/start_geoclue_agent.sh"
       "qs -c $qsConfig &" # QuickShell
-
-      # Setup fcitx5 - handled by systemd service now
 
       # Core components (authentication, lock screen, notification daemon)
       "gnome-keyring-daemon --start --components=secrets"
@@ -15,6 +14,10 @@
       "hypridle"
       "dbus-update-activation-environment --all"
       "sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # Some fix idk"
+      
+      # Start Fcitx5 (use PATH to get the wrapped version with addons)
+      "fcitx5 -d -r"
+      
       "hyprpm reload"
 
       # Clipboard: history
