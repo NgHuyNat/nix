@@ -7,13 +7,7 @@
       "${hostVars.nix_config}/home/shared/hypr/scripts/hyprland/start_geoclue_agent.sh"
       "qs -c $qsConfig &" # QuickShell
 
-      # Setup fcitx5
-      "export GTK_IM_MODULE=fcitx5"
-      "export QT_IM_MODULE=fcitx5"
-      "export XMODIFIERS=@im=fcitx5"
-      "export INPUT_METHOD=fcitx5"
-      "export SDL_IM_MODULE=fcitx5"
-      "fcitx5"
+      # Setup fcitx5 - handled by systemd service now
 
       # Core components (authentication, lock screen, notification daemon)
       "gnome-keyring-daemon --start --components=secrets"

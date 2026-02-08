@@ -1,4 +1,4 @@
-{ config, lib, hostVars, ... }:
+{ config, pkgs, lib, hostVars, ... }:
 
 {
   programs.kitty = {
@@ -13,6 +13,7 @@
       # Remote control for theme reloading
       allow_remote_control = true;
       listen_on = "unix:/tmp/kitty-socket";
+      shell = "${pkgs.zsh}/bin/zsh";
       
       # Cursor settings
       cursor_shape = "beam";

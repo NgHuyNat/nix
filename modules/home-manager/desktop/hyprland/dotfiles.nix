@@ -54,10 +54,7 @@ in
   };
 
   # Link other necessary configs
-  xdg.configFile."kitty" = {
-    source = "${dotsPath}/.config/kitty";
-    recursive = true;
-  };
+
 
   xdg.configFile."wlogout" = {
     source = "${dotsPath}/.config/wlogout";

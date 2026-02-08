@@ -251,25 +251,21 @@
     };
 
     # AUTOSTART - Sử dụng home-manager's built-in functionality
-    xdg.configFile."autostart/fcitx5.desktop" = {
-      force = true;  
-      text = ''
-        [Desktop Entry]
-        Name=Fcitx 5
-        GenericName=Input Method
-        Comment=Start Input Method
-        Exec=fcitx5 -d
-        Icon=fcitx
-        Terminal=false
-        Type=Application
-        Categories=System;Utility;
-        StartupNotify=false
-        X-GNOME-Autostart-Phase=Applications
-        X-GNOME-AutoRestart=false
-        X-GNOME-Autostart-Notify=false
-        X-KDE-autostart-after=panel
-        Hidden=false
-      '';
+    # FCITX5 SYSTEMD SERVICE (Auto-start)
+    systemd.user.services.fcitx5-daemon = {
+      Unit = {
+        Description = "Fcitx5 input method editor";
+        After = [ "graphical-session.target" ];
+        PartOf = [ "graphical-session.target" ];
+      };
+      Service = {
+        ExecStart = "${pkgs.fcitx5}/bin/fcitx5 -D";
+        Restart = "on-failure";
+        Type = "simple";
+      };
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
+      };
     };
   };
 }

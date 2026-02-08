@@ -32,9 +32,7 @@
     ../../modules/home-manager/gui/gtk-theme
     ../../modules/home-manager/gui/kde
     ../../modules/home-manager/gui/kvantum
-    ../../modules/home-manager/gui/matugen
-    ../../modules/home-manager/gui/qt5ct
-    ../../modules/home-manager/gui/qt6ct       
+    ../../modules/home-manager/gui/matugen       
   ];
 
   programs.direnv = {
