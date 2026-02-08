@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     kdePackages.kdialog
     python3Packages.kde-material-you-colors
+    papirus-icon-theme
   ];
 
   home.sessionVariables = {
@@ -22,8 +23,8 @@
 
       ncolor = 0
 
-      iconslight = breeze-plus
-      iconsdark = breeze-plus-dark
+      iconslight = Papirus
+      iconsdark = Papirus-Dark
 
       pywal = False
 
@@ -181,7 +182,7 @@
       toolBarFont=Google Sans Code,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 
       [Icons]
-      Theme=breeze-dark
+      Theme=Papirus-Dark
 
       [KFileDialog Settings]
       Allow Expansion=false

@@ -24,6 +24,14 @@
     FCITX_ENABLE_WAYLAND = "1";
   };
 
+  # === SYSTEM PACKAGES (Globally Available Icons) ===
+  environment.systemPackages = with pkgs; [
+    adwaita-icon-theme
+    hicolor-icon-theme
+    papirus-icon-theme
+    kdePackages.breeze-icons
+  ];
+
   # === HOME-MANAGER CONFIGURATION ===
   home-manager.users.${hostVars.user.username} = {
     home.packages = with pkgs; [
@@ -176,6 +184,7 @@
           PerScreenDPI=False
           ForceWaylandDPI=0
           EnableFractionalScale=True
+          IconTheme=Papirus-Dark
         '';
       };
 

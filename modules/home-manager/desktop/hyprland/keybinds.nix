@@ -7,8 +7,8 @@
 
     # Overview toggle on Super key release
     bindr = [
-      #"$mainMod, SUPER_L, exec, qs -c $qsConfig ipc call overview toggle"
-      #"$mainMod, SUPER_R, exec, qs -c $qsConfig ipc call overview toggle"
+      "$mainMod, SUPER_L, exec, qs -c $qsConfig ipc call overview toggle"
+      "$mainMod, SUPER_R, exec, qs -c $qsConfig ipc call overview toggle"
     ];
 
     # Shell
@@ -149,6 +149,9 @@
 
       # Cursed stuff
       "Ctrl+$mainMod, Backslash, resizeactive, exact 640 480"
+
+      # "$mainMod+Shift, S, Screen snip, global, quickshell:regionScreenshot"
+      "$mainMod+Shift, S, exec, qs -c $qsConfig ipc call TEST_ALIVE || pidof slurp || hyprshot --freeze --clipboard-only --mode region --silent"
     ];
 
     bindit = [
@@ -172,8 +175,6 @@
       # Utilities
       "$mainMod, V, Copy clipboard history entry, exec, qs -c $qsConfig ipc call TEST_ALIVE || pkill fuzzel || cliphist list | fuzzel --match-mode fzf --dmenu | cliphist decode | wl-copy"
       "$mainMod, Period, Copy an emoji, exec, qs -c $qsConfig ipc call TEST_ALIVE || pkill fuzzel || ~/.config/hypr/hyprland/scripts/fuzzel-emoji.sh copy"
-      "$mainMod+Shift, S, Screen snip, exec, pkill slurp; grim -g \"$(slurp -o)\" - | wl-copy && notify-send \"Screenshot\" \"Copied to clipboard\""
-      
       "$mainMod+Shift, T, Character recognition,exec,pkill slurp; grim -g \"$(slurp -o)\" \"tmp.png\" && tesseract \"tmp.png\" - | wl-copy && rm \"tmp.png\""
       "$mainMod+Shift, C, Color picker, exec, hyprpicker -a"
       

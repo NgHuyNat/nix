@@ -26,7 +26,10 @@ let
         --prefix QML2_IMPORT_PATH : "${qt5compat}/lib/qt-6/qml" \
         --prefix QML2_IMPORT_PATH : "${qtpositioning}/lib/qt-6/qml" \
         --prefix QT_PLUGIN_PATH : "${qtsvg}/lib/qt-6/plugins" \
-        --prefix QT_PLUGIN_PATH : "${qtwayland}/lib/qt-6/plugins"
+        --prefix QT_PLUGIN_PATH : "${qtsvg}/lib/qt-6/plugins" \
+        --prefix QT_PLUGIN_PATH : "${qtwayland}/lib/qt-6/plugins" \
+        --prefix XDG_DATA_DIRS : "${pkgs.papirus-icon-theme}/share:${pkgs.adwaita-icon-theme}/share:${pkgs.kdePackages.breeze-icons}/share:/etc/profiles/per-user/nghuytan/share:$HOME/.local/share:/usr/share:/run/current-system/sw/share:$HOME/.nix-profile/share:/nix/var/nix/profiles/default/share" \
+        --set XDG_CURRENT_DESKTOP "Hyprland"
     '';
   };
 in
@@ -46,6 +49,8 @@ in
     syntaxHighlighting       # Required for org.kde.syntaxhighlighting
     kirigami                 # Required for org.kde.kirigami
     kirigami                 # Required for org.kde.kirigami
+    pkgs.kdePackages.kservice # Required for application database
+    pkgs.gnome-menus         # Required for XDG menu definitions
     
     # === UTILITIES ===
     pkgs.fd                  # Required by some scripts
@@ -76,6 +81,8 @@ in
     QT_QPA_PLATFORM = "wayland";
     QT_QPA_PLATFORMTHEME = lib.mkForce "gtk3";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    # Fix missing icons/apps by ensuring XDG_DATA_DIRS includes all system/user paths
+    XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/run/current-system/sw/share:/etc/profiles/per-user/nghuytan/share:/home/nghuytan/.nix-profile/share:/nix/var/nix/profiles/default/share";
     # Disable geoclue timeout warnings that cause crashes
     QT_LOGGING_RULES = "qt.positioning.geoclue2.warning=false";
 
@@ -86,6 +93,9 @@ in
     SDL_IM_MODULE = "fcitx";
     GLFW_IM_MODULE = "fcitx";
     INPUT_METHOD = "fcitx";
+
+    # Ensure kbuildsycoca6 finds the menu definition
+    XDG_MENU_PREFIX = "gnome-";
   };
 
 }
