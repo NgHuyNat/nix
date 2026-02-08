@@ -30,6 +30,7 @@
     kdePackages.qt5compat
     kdePackages.syntax-highlighting
     kdePackages.bluedevil
+    kdePackages.kirigami
     gnome-keyring
     kdePackages.plasma-nm
     kdePackages.polkit-kde-agent-1

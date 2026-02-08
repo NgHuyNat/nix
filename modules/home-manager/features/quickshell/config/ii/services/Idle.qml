@@ -1,50 +1,55 @@
-import qs
+pragma Singleton
 import qs.modules.common
 import QtQuick
 import Quickshell
-import Quickshell.Io
-pragma Singleton
+import Quickshell.Wayland
 
 /**
- * Idle inhibitor service using systemd-inhibit for Quickshell 0.2.x compatibility.
+ * A nice wrapper for date and time strings.
  */
 Singleton {
     id: root
 
-    property bool inhibit: false
+    property alias inhibit: idleInhibitor.enabled
+    inhibit: false
 
     Connections {
         target: Persistent
         function onReadyChanged() {
             if (!Persistent.isNewHyprlandInstance) {
-                root.inhibit = Persistent.states.idle.inhibit
+                root.inhibit = Persistent.states.idle.inhibit;
             } else {
-                Persistent.states.idle.inhibit = root.inhibit
+                Persistent.states.idle.inhibit = root.inhibit;
             }
-            // Start/stop inhibitor based on saved state
-            updateInhibitor()
         }
     }
 
-    function toggleInhibit() {
-        root.inhibit = !root.inhibit
-        Persistent.states.idle.inhibit = root.inhibit
-        updateInhibitor()
-    }
-
-    function updateInhibitor() {
-        if (root.inhibit) {
-            inhibitorProcess.running = true
+    function toggleInhibit(active = null) {
+        if (active !== null) {
+            root.inhibit = active;
         } else {
-            inhibitorProcess.signal(15) // SIGTERM
+            root.inhibit = !root.inhibit;
+        }
+        Persistent.states.idle.inhibit = root.inhibit;
+    }
+
+    IdleInhibitor {
+        id: idleInhibitor
+        window: PanelWindow {
+            // Inhibitor requires a "visible" surface
+            // Actually not lol
+            implicitWidth: 0
+            implicitHeight: 0
+            color: "transparent"
+            // Just in case...
+            anchors {
+                right: true
+                bottom: true
+            }
+            // Make it not interactable
+            mask: Region {
+                item: null
+            }
         }
     }
-
-    // Use systemd-inhibit to prevent idle/sleep while coffee mode is active
-    Process {
-        id: inhibitorProcess
-        command: ["systemd-inhibit", "--what=idle:sleep", "--who=Quickshell", "--why=Keep system awake (coffee mode)", "--mode=block", "sleep", "infinity"]
-        running: root.inhibit
-    }
-
 }

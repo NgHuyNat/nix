@@ -13,7 +13,7 @@
     settings = {
       exec-once = [
         "${hostVars.nix_config}/home/shared/hypr/scripts/hyprland/start_geoclue_agent.sh"
-        "qs -c $qsConfig &" # QuickShell
+        "qs -c ii &" # QuickShell
 
         # Setup fcitx5
         "export GTK_IM_MODULE=fcitx5"
@@ -32,8 +32,8 @@
         "hyprpm reload"
 
         # Clipboard: history
-        "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch ${pkgs.cliphist}/bin/cliphist store && qs -c $qsConfig ipc call cliphistService update"
-        "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch ${pkgs.cliphist}/bin/cliphist store && qs -c $qsConfig ipc call cliphistService update"
+        "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch ${pkgs.cliphist}/bin/cliphist store && qs -c ii ipc call cliphistService update"
+        "${pkgs.wl-clipboard}/bin/wl-paste --type image --watch ${pkgs.cliphist}/bin/cliphist store && qs -c ii ipc call cliphistService update"
 
         # Set cursor theme
         "hyprctl setcursor breeze_cursors 24"
