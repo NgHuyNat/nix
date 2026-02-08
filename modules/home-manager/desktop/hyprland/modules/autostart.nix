@@ -12,24 +12,27 @@
   wayland.windowManager.hyprland = {    
     settings = {
       exec-once = [
-        "${hostVars.nix_config}/home/shared/hypr/scripts/hyprland/start_geoclue_agent.sh"
-        "qs -c ii &" # QuickShell
-
+        # Core components first (authentication, dbus, etc)
+        "gnome-keyring-daemon --start --components=secrets"
+        "dbus-update-activation-environment --all"
+        "sleep 0.5 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        
+        # Start quickshell early (parallel with other services)
+        "sleep 0.5 && quickshell-start &"
+        
         # Setup fcitx5
         "export GTK_IM_MODULE=fcitx5"
         "export QT_IM_MODULE=fcitx5"
         "export XMODIFIERS=@im=fcitx5"
         "export INPUT_METHOD=fcitx5"
         "export SDL_IM_MODULE=fcitx5"
-        "fcitx5"
+        "fcitx5 &"
 
-        # Core components (authentication, lock screen, notification daemon)
-        "gnome-keyring-daemon --start --components=secrets"
-        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
-        "hypridle"
-        "dbus-update-activation-environment --all"
-        "sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # Some fix idk"
-        "hyprpm reload"
+        # Other services
+        "${hostVars.nix_config}/home/shared/hypr/scripts/hyprland/start_geoclue_agent.sh &"
+        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &"
+        "hypridle &"
+        "hyprpm reload &"
 
         # Clipboard: history
         "${pkgs.wl-clipboard}/bin/wl-paste --type text --watch ${pkgs.cliphist}/bin/cliphist store && qs -c ii ipc call cliphistService update"

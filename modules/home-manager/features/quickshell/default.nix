@@ -1,11 +1,22 @@
 { config, pkgs, quickshell, ... }:
 
+let
+  # Wrapper script để start quickshell với đúng environment  
+  quickshell-start = pkgs.writeShellScriptBin "quickshell-start" ''
+    # Find kirigami unwrapped from nix store
+    KIRIGAMI_PATH=$(ls -d /nix/store/*-kirigami-[0-9]*/lib/qt-6/qml 2>/dev/null | grep -v wrapped | head -1)
+    export QML2_IMPORT_PATH="$KIRIGAMI_PATH:$QML2_IMPORT_PATH"
+    exec ${quickshell.packages.${pkgs.system}.default}/bin/qs -c ii
+  '';
+in
 {
 
   imports = [
     ./dependencies.nix
     ./services.nix
   ];
+  
+  home.packages = [ quickshell-start ];
 
   # Symlink QuickShell configuration from NixOS config
   # Use relative path from flake root
@@ -27,6 +38,9 @@
     # QuickShell specific
     QS_CONFIG = "ii";
     QS_NO_RELOAD_POPUP = "1";
+    
+    # QML import path for Kirigami
+    QML2_IMPORT_PATH = "${pkgs.kdePackages.kirigami}/lib/qt-6/qml";
     
     # Python path for scripts - use python3.12 for NixOS 24.11
     PYTHONPATH = "${pkgs.python3Packages.pywayland}/lib/python3.12/site-packages:${pkgs.python3Packages.setproctitle}/lib/python3.12/site-packages:${pkgs.python3Packages.pillow}/lib/python3.12/site-packages:${pkgs.python3Packages.numpy}/lib/python3.12/site-packages:${pkgs.python3Packages.requests}/lib/python3.12/site-packages";
